@@ -5,6 +5,7 @@ import './config/database.js'
 import cookieParser from 'cookie-parser'; // Libreria para manejar cookies
 import logger from 'morgan';  // Libreria para manejar logs
 import indexRouter from './routes/index.js';
+import cors from 'cors'; 
 // Traen las rutas de los endpoints
 import { __dirname } from './utils.js';
 
@@ -16,6 +17,7 @@ app.set('view engine', 'ejs');
 
 
 // app.use es para agregar middlewares
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
