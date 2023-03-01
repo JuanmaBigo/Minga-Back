@@ -53,7 +53,19 @@ const controller = {
         } catch (error) {
             next(error)
         }
+    },
+
+    token: async (req, res, next) => {
+        const { user } = req
+    try {
+        return res.status(200).json({
+            user:user._id
+        })
+    } catch (error) {
+        next(error)
+       }
     }
+       
 }
 
 export default controller
