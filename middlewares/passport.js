@@ -12,7 +12,7 @@ passport.use(
             try {				
                 let user = await User.findOne({ _id:jwt_payload.id })
                 if (user) {
-                    //user = user._id //dejen pasar la mayoria de los dsatos de user (menos la contraseña)
+                    user.password = null
                     return done(null,user)
                 } else {
                     return done(null,false)
