@@ -18,16 +18,15 @@ const schema = Joi.object({
             'string.empty': 'The title cannot be empty',
             'any.required': 'A title is required'
         }),
-    // cover_photo: Joi
-    //     .string()
-    //     .required()
-    //     .uri()
-    //     .messages(
-    //         {
-    //             'string.empty': 'The photo field cannot be empty',
-    //             'any.required': 'A photo is required',
-    //             'string.uri': 'A valid URL is necessary for the cover photo'
-    //         }),
+    cover_photo: Joi
+        .string() 
+        .uri()
+        .messages(
+            {
+                'string.empty': 'The photo field cannot be empty',
+                'any.required': 'A photo is required',
+                'string.uri': 'A valid URL is necessary for the cover photo'
+            }),
     pages: Joi
         .array().items(
             Joi
