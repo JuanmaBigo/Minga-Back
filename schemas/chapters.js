@@ -15,7 +15,7 @@ const schema = Joi.object({
         .messages({
             'string.min': 'The title must be at least 2 characters long',
             'string.max': 'The title must be 30 characters long max',
-            'string.empty': 'The title cannot be empty',
+            'string.empty': 'A title is required',
             'any.required': 'A title is required'
         }),
     cover_photo: Joi
@@ -31,20 +31,17 @@ const schema = Joi.object({
         .array().items(
             Joi
                 .string()
-                .required()
                 .uri()
                 .messages(
                     {
                         'string.any': 'Page field must be a URL',
-                        'string.empty': 'The page field cannot be empty',
+                        'string.empty': 'The pages field cannot be empty',
                         'string.uri': 'A valid URL page is necessary',
-                        'string.required': 'At least a page is required', //como hago para que cuando mando un array vacio sate esto
                     }))
         .required()
         .messages(
             {
                 'array.base': 'Pages must be an array of URLs',
-                'array.empty': 'The pages field cannot be empty',
                 'any.required': 'An array of pages is required',
             }),
     order: Joi

@@ -7,6 +7,7 @@ const controller = {
             return res.status(201).json({
                 success: true,
                 chapter: req.body,
+                user: req.user
             })
         } catch (error) {
             console.log(error);
