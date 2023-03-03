@@ -14,7 +14,7 @@ const { create } = controller;
 
 // req.user debe traer la data del usuario autenticado
 
-router.post('/create', validator(schema), exists_order, next_order, add_front_photo, create);
+router.post('/chapter-form', validator(schema), exists_order, next_order, add_front_photo, create);
 
 
 export default router;
