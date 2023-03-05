@@ -1,32 +1,19 @@
 import express from 'express';
-import Chapter from '../models/Chapter.js';
+import controller from '../controllers/chapters/create.js';
+import exists_order from '../middlewares/exists_order.js';
+import next_order from '../middlewares/next_order.js';
+import validator from '../middlewares/validator.js';
+import schema from '../schemas/chapters.js';
+import add_front_photo from '../middlewares/add_front_photo.js';
+import passport from '../middlewares/passport.js';
+
+
+
 let router = express.Router();
 
-/* GET chapters listing. */
-router.get('/', (req, res) => {
-  return res
-    .status(200)
-    .send('chapters page');
-});
+const { create } = controller;
 
-router.post(
-  '/',
-  async (req, res) => {
-    try {
-      let chapter = await Chapter.create(req.body)
-      return res.status(201).json({
-        success: true,
-        chapter: chapter,
-      })
-    } catch (error) {
-      console.log(error);
-      return res.status(400).json({
-        success: false,
-        message: 'No se pudo crear'
-      })
-    }
-
-  })
+router.post('/', passport.authenticate('jwt', {session: false}), validator(schema), exists_order, next_order, add_front_photo, create);
 
 
 export default router;

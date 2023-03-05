@@ -18,9 +18,7 @@ router.get('/', function (req, res, next) {
 router.use('/users',userRouter)
 router.use('/mangas', mangaRouter)
 router.use('/auth',userRouter);
-router.use('/chapters',chapterRouter);
-
-
+router.use('/chapter-form',chapterRouter);
 
 
 
