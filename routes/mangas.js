@@ -1,27 +1,16 @@
 import  express  from "express";
+import createcontroller from '../controllers/mangas/create.js'
+import showcontroller from '../controllers/categories/showAll.js'
+import exists_tittle from "../middlewares/exists_tittle.js";
 let router = express.Router()
-import Manga from "../models/Manga.js";
+let { create } = createcontroller
+let { showAll } = showcontroller
 
-router.get('/', (req,res) => {
-    return res
-        .status(200)
-        .send('pagina de mangas')
-})
 
-router.post('/', async (req,res) =>{
-    try {
-        let manga = await Manga.create(req.body)
-        return res.status(201).json({
-            response: 'created',
-            manga: req.body
-        })
-        
-    } catch (error) {
-        console.log(error)
-        return res.status(400).json({
-            response: error.message 
-        })
-    }
-})
+
+router.get('/', showAll)
+router.post('/', exists_tittle, create)
+
+
 
 export default router

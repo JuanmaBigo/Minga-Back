@@ -87,9 +87,9 @@ const controller = {
         })
     } catch (error) {
         next(error)
-       }
     }
-       
+    }
+
 }
 
 export default controller
