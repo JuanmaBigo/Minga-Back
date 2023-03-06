@@ -5,7 +5,7 @@ async function exists_tittle(req,res,next){
     if(tittle){
         return res.status(400).json({
             success: false,
-            message: 'tittle already exists!'
+            message: 'Tittle already exists!'
         })
     }
     return next()
