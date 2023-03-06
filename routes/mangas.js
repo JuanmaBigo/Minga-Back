@@ -11,8 +11,8 @@ let { showAll } = showcontroller
 
 
 router.get('/', showAll)
-router.post('/', validator(schema), exists_tittle, create)
 
+router.post('/', validator(schema), exists_tittle, create)
 
 
 export default router
