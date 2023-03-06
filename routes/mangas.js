@@ -2,6 +2,8 @@ import  express  from "express";
 import createcontroller from '../controllers/mangas/create.js'
 import showcontroller from '../controllers/categories/showAll.js'
 import exists_tittle from "../middlewares/exists_tittle.js";
+import validator from '../middlewares/validator.js'
+import schema from '../schemas/mangas.js'
 let router = express.Router()
 let { create } = createcontroller
 let { showAll } = showcontroller
@@ -9,8 +11,8 @@ let { showAll } = showcontroller
 
 
 router.get('/', showAll)
-router.post('/', exists_tittle, create)
 
+router.post('/', validator(schema), exists_tittle, create)
 
 
 export default router
