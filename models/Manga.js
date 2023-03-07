@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 let schema = new mongoose.Schema(
     {
-        title: { type: String, required: true},
+        tittle: { type: String, required: true},
         description: { type: String, required: true },
         category: { type: String, required: true},
         // category_id: { type: String, required: true},
@@ -16,5 +16,4 @@ let schema = new mongoose.Schema(
 )
 
 let Manga = mongoose.model('mangas', schema)
-
 export default Manga
