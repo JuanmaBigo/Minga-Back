@@ -1,32 +1,28 @@
 import express from 'express';
-import UserMinga from '../models/UserMinga.js';
+import read_all_controller from '../controllers/users/read_all.js'
+import controller from '../controllers/auth/auth.js'
+import validator from './../middlewares/validator.js'
+import schema from '../schemas/users.js'
+import schemaRegister from '../schemas/userRegister.js'
+import accountExistsSignUp from './../middlewares/accountExistsSignUp.js'
+import accountExistsSignIn from './../middlewares/accountExistsSignIn.js'
+import accountHasBeenVerified from './../middlewares/accountHasBeenVerified.js'
+import passwordIsOk from './../middlewares/passwordIsOk.js'
+import passport from './../middlewares/passport.js'
+
+const {read_all} = read_all_controller
+
+const {sign_up,sign_in,sign_out,token} = controller
+
 let router = express.Router();
 
 /* GET users listing. */
-router.get('/', (req, res) => {
-  return res
-    .status(200)
-    .send('pagina de usuarios');
-});
+router.get('/', read_all);
 
-router.post(
-  '/',
-  async (req, res) => {
-    try {
-      let userMinga = await UserMinga.create(req.body)
-      return res.status(201).json({
-        success: true,
-        user: userMinga,
-      })
-    } catch (error) {
-      console.log(error);
-      return res.status(400).json({
-        success: false,
-        message: 'No se pudo crear'
-      })
-    }
-
-  })
+router.post('/signup',validator(schema),accountExistsSignUp,sign_up)
+router.post('/signin',validator(schemaRegister),accountExistsSignIn,accountHasBeenVerified,passwordIsOk,sign_in)
+router.post('/signout',passport.authenticate('jwt',{ session:false }),sign_out)
+router.post('/token',passport.authenticate('jwt',{ session:false }),token)
 
 
 export default router;
