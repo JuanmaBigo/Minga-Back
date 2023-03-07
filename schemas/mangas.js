@@ -1,7 +1,7 @@
 import Joi from "joi";
 
 const schema = Joi.object({
-    tittle: Joi
+    title: Joi
         .string()
         .required()
         .min(4)
