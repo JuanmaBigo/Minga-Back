@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 let schema = new mongoose.Schema(
     {
-        tittle: { type: String, required: true},
+        title: { type: String, required: true},
         description: { type: String, required: true },
         category: { type: String, required: true},
         // category_id: { type: String, required: true},
