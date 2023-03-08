@@ -6,10 +6,13 @@ import validator from '../middlewares/validator.js';
 import schema from '../schemas/chapters.js';
 import add_front_photo from '../middlewares/add_front_photo.js';
 import passport from '../middlewares/passport.js';
+
 import showOneChapterController from '../controllers/chapters/get_one.js'
 
 
+
 let router = express.Router();
+
 
 const { showOne } = showOneChapterController
 const { create } = controller;
