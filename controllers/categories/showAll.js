@@ -7,7 +7,7 @@ const controller = {
             if (categories) {
                 return res.status(200).json({
                     success: true,
-                    message: "categories categories",
+                    message: "categories",
                     categories
                 })
             } else {
