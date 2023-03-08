@@ -26,6 +26,19 @@ const schema = Joi.object({
             'string.empty': 'A Description is required',
             'any.required': 'A Description is required'
         }),
+        photo: Joi
+        .string()
+        .required()
+        .min(8)
+        .uri()
+        .messages(
+            {
+                'string.min': 'The photo must be at least 8 characters',
+                'string.empty': 'The photo cannot be empty',
+                'any.required': 'A photo is required',
+                'string.uri': 'A valid URL is necessary'
+            }
+        )
 
 })
 
