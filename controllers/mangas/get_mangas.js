@@ -7,9 +7,9 @@ const controller = {
             page:1,
             limit:6
         }
-        if(req.query.category){
-            const categories = req.query.category.split(',');
-            filter.category = { $in: categories };
+        if(req.query.category_id){
+            const categories = req.query.category_id.split(',');
+            filter.category_id = { $in: categories };
             pagination.limit=10
             
         }
@@ -21,6 +21,7 @@ const controller = {
         if(req.query.page){
             pagination.page = req.query.page
         }
+        console.log(filter);
         try{
             let get_mangas = await Manga.find(filter)
                 .select('title -_id')
