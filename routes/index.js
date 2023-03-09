@@ -17,8 +17,8 @@ router.get('/', function (req, res, next) {
 
 router.use('/mangas', mangaRouter)
 router.use('/auth',userRouter);
-router.use('/chapter-form',chapterRouter);
-
+router.use('/chapters',chapterRouter);
 
 
 export default router;
+
