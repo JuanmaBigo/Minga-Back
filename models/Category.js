@@ -9,6 +9,6 @@ const schema = new mongoose.Schema(
     }
 )
 
+const Category = mongoose.model('categories', schema)
 
-
-export const Category = mongoose.model('categories', schema)
+export default Category
