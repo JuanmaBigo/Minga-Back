@@ -7,7 +7,7 @@ const schema = new mongoose.Schema(
         title: { type: String, required: true },
         cover_photo: { type: String, required: true },
         description: { type: String, required: true },
-        category_id: { type: mongoose.Types.ObjectId, require: true }
+        category_id: { type: mongoose.Types.ObjectId,ref:'categories', require: true }
     },{
         timestamps: true
     }
