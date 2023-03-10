@@ -22,7 +22,6 @@ const { create } = controller;
 const { get_chapters } = get_chapters_controller;
 
 router.get('/', get_chapters)
-
 router.get('/:id',showOne)
 
 router.post('/', passport.authenticate('jwt', {session: false}), validator(schema), exists_order, next_order, add_front_photo, create);
