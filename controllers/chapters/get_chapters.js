@@ -15,10 +15,11 @@ const controller = {
                 .limit(pagination.limit > 0 ? pagination.limit : 0)
                 .populate("_id")
                 
+                let count = await Chapter.find({ manga_id: query.manga_id }).countDocuments()
                 
             return res
                 .status(200)
-                .json({ chapters: chapters })
+                .json({ chapters: chapters, count })
         } catch {
             return res.status(400).json({
                 success: false,
