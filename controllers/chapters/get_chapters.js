@@ -13,6 +13,8 @@ const controller = {
                 .select("title order -_id")
                 .skip(pagination.page > 0 ? (pagination.page - 1) * pagination.limit : 0)
                 .limit(pagination.limit > 0 ? pagination.limit : 0)
+                .populate("_id")
+                
                 
             return res
                 .status(200)
