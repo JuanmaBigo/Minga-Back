@@ -16,6 +16,5 @@ const schema = new mongoose.Schema(
     }
 )
 
-
 const User = mongoose.model('users',schema)
 export default User
