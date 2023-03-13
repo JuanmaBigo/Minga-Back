@@ -26,7 +26,7 @@ const schema = Joi.object({
             'string.empty': 'A Description is required',
             'any.required': 'A Description is required'
         }),
-        photo: Joi
+        cover_photo: Joi
         .string()
         .required()
         .min(8)
