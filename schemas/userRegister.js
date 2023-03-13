@@ -1,7 +1,7 @@
 import Joi from "joi"
 
 const schema = Joi.object({
-    email: Joi
+    mail: Joi
         .string()
         .required()
         .min(8)
