@@ -28,7 +28,7 @@ const controller = {
     sign_in: async (req, res, next) => {
         try {
             let user = await User.findOneAndUpdate(
-                { email: req.user.email }, //parametro de busqueda
+                { mail: req.user.mail }, //parametro de busqueda
                 { is_online: true }, //parámetro a modificar
                 { new: true } //para que devuelva el objeto modificado
             )
@@ -51,10 +51,10 @@ const controller = {
 
     sign_out: async (req, res, next) => {
         console.log(req.user)
-        const { email } = req.user
+        const { mail } = req.user
         try {
             await User.findOneAndUpdate(
-                { email },
+                { mail },
                 { is_online: false },
                 { new: true }
             )

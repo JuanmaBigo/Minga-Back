@@ -6,7 +6,7 @@ import get_one_controller from '../controllers/mangas/get_one.js';
 import exists_title from '../middlewares/exists_title.js';
 import validator from '../middlewares/validator.js'
 import schema from '../schemas/mangas.js'
-
+import passport from "../middlewares/passport.js";
 
 let router = express.Router()
 let { create } = createcontroller
@@ -17,10 +17,8 @@ let { get_one } = get_one_controller
 
 router.get('/category-manga', showAll)
 router.get('/', get_mangas)
-
 router.get('/:id', get_one)
-
-router.post('/', validator(schema), exists_title, create)
+router.post('/',passport.authenticate('jwt', {session: false}), validator(schema), exists_title, create)
 
 
 

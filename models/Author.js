@@ -8,7 +8,7 @@ const schema = new mongoose.Schema(
         country: { type: String, require: true },
         date: { type: Date },
         photo: { type: String, require: true },
-        user_id: { type: mongoose.Types.ObjectId, ref: 'users', require: true },
+        user_id: { type: mongoose.Types.ObjectId, ref: 'users' },
         active: { type: Boolean, require: true }
     },{
         timestamps: true

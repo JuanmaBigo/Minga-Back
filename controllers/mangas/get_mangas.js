@@ -34,9 +34,17 @@ const controller = {
                 .limit(pagination.limit > 0 ? pagination.limit : 0 )
                 
 
-            return res
-            .status(200)
-            .json({ mangas: get_mangas })
+
+            if (get_mangas.length){
+                return res
+                .status(200)
+                .json({ 
+                    success:true,
+                    mangas: get_mangas 
+                })
+            }else{
+                return next(createError(404, 'Mangas does not exist'))
+            }
         }catch(error){
             next(error)
         }
