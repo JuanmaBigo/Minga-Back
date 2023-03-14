@@ -5,9 +5,9 @@ import request from 'supertest'
 const assert = chai.assert
 const expect = chai.expect
 
-describe('Prueba sobre/categories',() =>{
+describe('Prueba sobre/mangas y user',() =>{
 
-    it('Get a /categories debe traerme 6',async() =>{
+    it('Get a /mangas debe traerme 6',async() =>{
         const response =await request(app).get('/api/mangas')
         assert.equal(response.body.mangas.length,6)
     })

@@ -34,9 +34,22 @@ const controller = {
                 .limit(pagination.limit > 0 ? pagination.limit : 0 )
                 
 
-            return res
-            .status(200)
-            .json({ mangas: get_mangas })
+
+            if (get_mangas.length){
+                return res
+                .status(200)
+                .json({ 
+                    success:true,
+                    mangas: get_mangas 
+                })
+            }else{
+                return res
+                .status(404)
+                .json({
+                    success:false,
+                    message:'The request for get_mangas was not made'
+                })
+            }
         }catch(error){
             next(error)
         }
