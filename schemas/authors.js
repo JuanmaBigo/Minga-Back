@@ -58,12 +58,12 @@ const schema = Joi.object({
                 'any.required': 'A photo is required',
                 'string.uri': 'A valid URL is necessary for the cover photo'
             }),
-    user_id: Joi
-        .objectId()
-        .required()
-        .messages({
-            'invalid': 'user_id is not an objectId'
-        }),
+    // user_id: Joi
+    //     .objectId()
+    //     .required()
+    //     .messages({
+    //         'invalid': 'user_id is not an objectId'
+    //     }),
 })
 
 export default schema

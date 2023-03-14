@@ -14,7 +14,7 @@ let router = express.Router();
 
 
 router.get('/',read_all)
-router.post('/', passport.authenticate('jwt', {session: false}), validator(schema), create);
+router.post('/', validator(schema), create);
 
 
 export default router;

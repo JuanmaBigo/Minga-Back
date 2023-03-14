@@ -3,17 +3,17 @@ import objectId from 'joi-objectid';
 Joi.objectId = objectId(Joi);
 
 const schema = Joi.object({
-    author_id:Joi
-        .objectId()
-        .required()
-        .messages({
-            'invalid': 'author_id is not an objectId'
-        }),
-    company_id:Joi
-        .objectId()
-        .messages({
-            'invalid': 'company_id is not an objectId'
-        }),
+    // author_id:Joi
+    //     .objectId()
+    //     .required()
+    //     .messages({
+    //         'invalid': 'author_id is not an objectId'
+    //     }),
+    // company_id:Joi
+    //     .objectId()
+    //     .messages({
+    //         'invalid': 'company_id is not an objectId'
+    //     }),
     title: Joi
         .string()
         .required()
