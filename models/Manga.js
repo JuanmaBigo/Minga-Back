@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 
 const schema = new mongoose.Schema(
     {
-        author_id: { type: mongoose.Types.ObjectId, require: true },
+        author_id: { type: mongoose.Types.ObjectId, ref:'authors'},
         company_id: { type: mongoose.Types.ObjectId, ref: 'companies'}, 
         title: { type: String, required: true },
         cover_photo: { type: String, required: true },

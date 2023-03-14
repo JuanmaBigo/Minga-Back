@@ -1,6 +1,19 @@
 import Joi from "joi";
+import objectId from 'joi-objectid';
+Joi.objectId = objectId(Joi);
 
 const schema = Joi.object({
+    // author_id:Joi
+    //     .objectId()
+    //     .required()
+    //     .messages({
+    //         'invalid': 'author_id is not an objectId'
+    //     }),
+    // company_id:Joi
+    //     .objectId()
+    //     .messages({
+    //         'invalid': 'company_id is not an objectId'
+    //     }),
     title: Joi
         .string()
         .required()
@@ -12,10 +25,7 @@ const schema = Joi.object({
             'string.empty': 'A title is required',
             'any.required': 'A title is required'
         }),
-        category: Joi
-        .string()
-        .required(),
-        description: Joi
+    description: Joi
         .string()
         .required()
         .min(8)
@@ -26,7 +36,7 @@ const schema = Joi.object({
             'string.empty': 'A Description is required',
             'any.required': 'A Description is required'
         }),
-        photo: Joi
+    cover_photo: Joi
         .string()
         .required()
         .min(8)
@@ -38,7 +48,13 @@ const schema = Joi.object({
                 'any.required': 'A photo is required',
                 'string.uri': 'A valid URL is necessary'
             }
-        )
+        ),
+    category_id: Joi
+        .objectId()
+        .required()
+        .messages({
+            'invalid': 'category_id is not an objectId'
+        }),
 
 })
 

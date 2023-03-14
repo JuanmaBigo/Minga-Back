@@ -2,6 +2,7 @@ import express from 'express';
 import userRouter from './users.js'
 import chapterRouter from './chapters.js'
 import mangaRouter from './mangas.js'
+import authorRouter from './author.js'
 let router = express.Router();
 
 
@@ -16,6 +17,7 @@ router.get('/', function (req, res, next) {
 // a traves del metodo .use() le indico al enrutador principal que utilice esas rutas con el endpoint correspondiente
 
 router.use('/mangas', mangaRouter)
+router.use('/authors',authorRouter)
 router.use('/auth',userRouter);
 router.use('/chapters',chapterRouter);
 
