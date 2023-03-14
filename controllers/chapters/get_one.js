@@ -5,6 +5,7 @@ const controller = {
     showOne: async (req, res, next) => {
         try {
 
+
             // Busco por el ID
             let chapter = await Chapter.findById(req.params.id)
                 .select('-__v -updatedAt -createdAt -_id')
@@ -14,6 +15,7 @@ const controller = {
             let prev = await Chapter.findOne({manga_id: chapter.manga_id, order: chapter.order - 1 })
             
             if (chapter) {
+
                 return res.status(200).json({
                     success: true,
                     chapter,
