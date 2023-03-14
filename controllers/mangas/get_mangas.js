@@ -43,12 +43,7 @@ const controller = {
                     mangas: get_mangas 
                 })
             }else{
-                return res
-                .status(404)
-                .json({
-                    success:false,
-                    message:'The request for get_mangas was not made'
-                })
+                return next(createError(404, 'Mangas does not exist'))
             }
         }catch(error){
             next(error)
