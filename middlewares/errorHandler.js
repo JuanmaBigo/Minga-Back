@@ -7,12 +7,9 @@ export function errorNotFound(req, res, next){
 export function errorHandler(err, req, res, next){
     console.error(err.stack)
     let body = {
-        success:false,
         status: err.status,
         message: err.message
     }
-    if (err.status === 404) {
-        body.manga = {}
-    }
+    
     res.status(err.status || 500).json(body)
 }
