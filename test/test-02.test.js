@@ -23,7 +23,7 @@ describe('API tests (REQ-RES)',() =>{
 
     it('GET a / api/mangas/:id verificar que el id enviado por params es un objectid',async()=>{
        // Validar que el id tenga el formato correcto
-       var isValid = mongoose.Types.ObjectId.isValid(validId);
+       const isValid = mongoose.Types.ObjectId.isValid(validId);
        expect(isValid).to.be.true;   
        // Hacer una petición GET con el id válido
        const response = await request(app).get(`/api/mangas/${validId}`)
@@ -40,7 +40,7 @@ describe('API tests (REQ-RES)',() =>{
         // Hacer una petición GET con el id y el token válidos
         const response = await request(app).get(`/api/mangas/${validId}`)
             .auth(token,{type:'bearer'}) // Enviar el token en el header Authorization
-            .then((req, res) => {
+            .request((req)=>{
                 // Acceder al objeto req y verificar el header Authorization
                 expect(req.header.Authorization).to.equal(`Bearer ${token}`)
             })
