@@ -1,5 +1,6 @@
 import Manga from "../../models/Manga.js";
-import createError from 'http-errors'
+import Company from "../../models/Company.js";
+import createError from 'http-errors';
 
 const controller = {
     get_one: async (req, res, next) => {
