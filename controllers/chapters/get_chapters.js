@@ -11,10 +11,9 @@ const controller = {
 
         try {
             let chapters = await Chapter.find({ manga_id: query.manga_id })
-                .select("title order -_id")
+                .select("title order")
                 .skip(pagination.page > 0 ? (pagination.page - 1) * pagination.limit : 0)
                 .limit(pagination.limit > 0 ? pagination.limit : 0)
-                .populate("_id")
 
             let count = await Chapter.find({ manga_id: query.manga_id }).countDocuments()
 
