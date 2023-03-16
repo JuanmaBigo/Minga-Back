@@ -45,8 +45,8 @@ const controller = {
             }else{
                 return next(createError(404, 'Mangas does not exist'))
             }
-        }catch(error){
-            next(error)
+        }catch(err){
+            next(err)
         }
     }
 }
