@@ -17,7 +17,7 @@ let { get_one } = get_one_controller
 
 router.get('/category-manga', showAll)
 router.get('/', get_mangas)
-router.get('/:id', get_one)
+router.get('/:id',passport.authenticate('jwt', {session: false}), get_one)
 router.post('/',passport.authenticate('jwt', {session: false}), validator(schema), exists_title, create)
 
 
