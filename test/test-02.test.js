@@ -6,9 +6,7 @@ import mongoose from 'mongoose';
 
 const assert = chai.assert
 const expect = chai.expect
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTBmYjMzYTdiM2RiOWEyYjJlMDcwMyIsImlhdCI6MTY3ODg5MTAyNywiZXhwIjoxNjc5NDk1ODI3fQ.2EPdswt4HQQ9P37ALde_DLxy2LCetXred6EIsnyAJVg'
-
-// const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGU2YTczYWUzMDcxYjQxYTBiMTFkOSIsImlhdCI6MTY3ODk4NzA0MiwiZXhwIjoxNjc5NTkxODQyfQ.dPKZfxUw8u2fKjLfbcn2kq0sDA3Tw1HXaLz5dAuMjR4'
+const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGU2YTczYWUzMDcxYjQxYTBiMTFkOSIsImlhdCI6MTY3ODk4NzA0MiwiZXhwIjoxNjc5NTkxODQyfQ.dPKZfxUw8u2fKjLfbcn2kq0sDA3Tw1HXaLz5dAuMjR4'
 const validId = '640a148f5120e75dcbb36622'
 //const validId = mongoose.Types.ObjectId()// Generar un id válido usando mongoose
 
