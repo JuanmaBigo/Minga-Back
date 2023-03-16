@@ -9,7 +9,7 @@ const expect = chai.expect
 const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MGU2YTczYWUzMDcxYjQxYTBiMTFkOSIsImlhdCI6MTY3ODk4NzA0MiwiZXhwIjoxNjc5NTkxODQyfQ.dPKZfxUw8u2fKjLfbcn2kq0sDA3Tw1HXaLz5dAuMjR4'
 const validId = '640a148f5120e75dcbb36622'
 //const validId = mongoose.Types.ObjectId()// Generar un id válido usando mongoose
-    
+
 /**
  * REQ-TEST
     GET api/mangas/:id verificar que el id enviado por params es un objectid	
