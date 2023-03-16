@@ -1,5 +1,6 @@
 import Manga from "../../models/Manga.js";
-import createError from 'http-errors'
+import Company from "../../models/Company.js";
+import createError from 'http-errors';
 
 const controller = {
     get_one: async (req, res, next) => {
@@ -7,6 +8,7 @@ const controller = {
             let manga = await Manga.findById(req.params.id)
                 .select("title cover_photo description -_id")
                 .populate("company_id", "name -_id")
+                .populate("category_id", "name -_id")
             if (manga) {
                 return res
                     .status(200)
