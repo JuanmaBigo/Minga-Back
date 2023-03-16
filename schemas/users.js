@@ -10,7 +10,7 @@ const schema = Joi.object({
             'string.empty':'The name cannot be empty',
             'any.required': 'A name is required'
         }),
-    email: Joi
+    mail: Joi
         .string()
         .required()
         .min(8)

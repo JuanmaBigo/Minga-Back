@@ -8,6 +8,7 @@ import indexRouter from './routes/index.js';
 import cors from 'cors'; 
 // Traen las rutas de los endpoints
 import { __dirname } from './utils.js';
+import {errorHandler, errorNotFound} from './middlewares/errorHandler.js'
 
 let app = express(); // Define la aplicacion de back ejecutando el modulo de express
 
@@ -25,7 +26,11 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // routes
-app.use('/', indexRouter);
+app.use('/api', indexRouter);
+
+app.use(errorNotFound)
+
+app.use(errorHandler)
 
 // module.exports = app;
 export default app;
