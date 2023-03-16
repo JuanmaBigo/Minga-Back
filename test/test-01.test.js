@@ -5,6 +5,7 @@ import request from 'supertest';
 const expect = chai.expect;
 const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY0MTBmYjMzYTdiM2RiOWEyYjJlMDcwMyIsImlhdCI6MTY3ODg5MTAyNywiZXhwIjoxNjc5NDk1ODI3fQ.2EPdswt4HQQ9P37ALde_DLxy2LCetXred6EIsnyAJVg';
 
+
 describe('Test /mangas', () => {
     it('POST api/mangas verificar que cover_photo es una url', async () => {
         const response = await request(app).post('/api/mangas/')
@@ -34,4 +35,3 @@ describe('Test /mangas', () => {
         expect(response.body).to.have.property('mangas');
     })
 })
-
