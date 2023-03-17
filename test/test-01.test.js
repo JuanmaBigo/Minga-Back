@@ -13,7 +13,6 @@ let manga = {
 
 describe('Test /mangas', () => {
     it('POST api/mangas verificar que cover_photo es una url', async () => {
-
         expect(manga.cover_photo).include('https://');
         const response = await request(app).post('/api/mangas/')
             .set('Authorization', `Bearer ${token}`)
@@ -38,4 +37,3 @@ describe('Test /mangas', () => {
         expect(response.body).to.have.property('mangas');
     })
 })
-
