@@ -1,6 +1,6 @@
 import Manga from "../../models/Manga.js";
-import Company from "../../models/Company.js"
-import createError from 'http-errors'
+import Company from "../../models/Company.js";
+import createError from 'http-errors';
 
 const controller = {
     get_one: async (req, res, next) => {
@@ -12,11 +12,13 @@ const controller = {
             if (manga) {
                 return res
                     .status(200)
-                    .json({ manga: manga })
+                    .json({ 
+                        success:true,
+                        manga: manga })
             }
             return next(createError(404, 'Manga does not exist'))
-        } catch (error) {
-            next(error)
+        } catch (err) {
+            next(err)
         }
     }
 }
