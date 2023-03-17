@@ -29,6 +29,4 @@ describe( 'Test to chapters', () => {
         assert.equal(response.status, 201)
     })
 
-    
-
 })
