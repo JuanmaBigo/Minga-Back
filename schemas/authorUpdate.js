@@ -58,7 +58,6 @@ const schema = Joi.object({
             }),
     user_id: Joi
         .objectId()
-        .required()
         .messages({
             'invalid': 'user_id is not an objectId'
         }),

@@ -7,6 +7,7 @@ import is_active from '../middlewares/authors/is_active.js';
 import updateController from '../controllers/authors/update.js'
 import validator from '../middlewares/validator.js';
 import schema from '../schemas/authors.js';
+import schemaUpdate from '../schemas/authorUpdate.js'
 import passport from '../middlewares/passport.js';
 
 const { create } = controller;
@@ -20,6 +21,6 @@ let router = express.Router();
 router.get('/',read_all)
 router.post('/', validator(schema), create);
 router.get('/me',passport.authenticate('jwt',{session:false}),find_id,get_me)
-router.put('/me',passport.authenticate('jwt',{session:false}),find_id,is_active,update)
+router.put('/me',passport.authenticate('jwt',{session:false}),validator(schemaUpdate),find_id,is_active,update)
 
 export default router;
