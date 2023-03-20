@@ -18,7 +18,7 @@ const controller = {
                 return next(createError(404,'not found'))
             } 
         } catch(error) {
-            next(error)
+            next(createError(400,error))
         }
     }
    }

@@ -5,7 +5,6 @@ Joi.objectId = objectId(Joi);
 const schema = Joi.object({
     name: Joi
         .string()
-        .required()
         .min(2)
         .max(30)
         .messages({
@@ -46,6 +45,7 @@ const schema = Joi.object({
         }),
     date: Joi
         .date()
+        .raw()
         ,
     photo: Joi
         .string() 
@@ -61,6 +61,7 @@ const schema = Joi.object({
         .messages({
             'invalid': 'user_id is not an objectId'
         }),
+        active:Joi.boolean()
 })
 
 export default schema
