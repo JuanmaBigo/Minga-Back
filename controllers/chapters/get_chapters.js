@@ -10,12 +10,12 @@ const controller = {
         if (req.query.manga_id) { query.manga_id = req.query.manga_id }
 
         try {
-            let chapters = await Chapter.find({ manga_id: query.manga_id })
+            let chapters = await Chapter.find(query)
                 .select("title order")
                 .skip(pagination.page > 0 ? (pagination.page - 1) * pagination.limit : 0)
                 .limit(pagination.limit > 0 ? pagination.limit : 0)
 
-            let count = await Chapter.find({ manga_id: query.manga_id }).countDocuments()
+            let count = await Chapter.find(query).countDocuments()
 
             if (count) {
                 return res

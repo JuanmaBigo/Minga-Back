@@ -22,6 +22,7 @@ let { get_one } = get_one_controller
 let { get_me } = get_me_controller
 let { update } = update_controller
 
+
 router.get('/me',passport.authenticate('jwt', {session: false}), find_id, get_me)
 router.get('/category-manga', showAll)
 router.get('/', passport.authenticate('jwt', {session: false}), get_mangas)
