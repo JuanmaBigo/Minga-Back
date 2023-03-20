@@ -8,6 +8,7 @@ const controller = {
             let manga = await Manga.findById(req.params.id)
                 .select("title cover_photo description -_id")
                 .populate("company_id", "name -_id")
+                .populate("category_id", "name -_id")
             if (manga) {
                 return res
                     .status(200)
