@@ -29,7 +29,7 @@ let { destroy } = destroy_controller
 
 router.get('/me',passport.authenticate('jwt', {session: false}), find_id, get_me)
 router.get('/category-manga', showAll)
-router.get('/', get_mangas)
+router.get('/', passport.authenticate('jwt', {session: false}), get_mangas)
 router.get('/:id', passport.authenticate('jwt', {session: false}), get_one)
 router.post('/',passport.authenticate('jwt', {session: false}), validator(schema), exists_title, create)
 router.put('/:id',passport.authenticate('jwt', {session: false}), validator(schema_update), find_id, is_active, exists_title, update)
