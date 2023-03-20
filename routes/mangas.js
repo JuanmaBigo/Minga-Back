@@ -13,6 +13,7 @@ import update_controller from '../controllers/mangas/update.js'
 import schema_update from '../schemas/update_maga.js'
 import is_active from '../middlewares/authors/is_active.js'
 import is_property_of from '../middlewares/authors/is_property_of.js'
+import destroy_controller from '../controllers/mangas/destroy.js'
 
 let router = express.Router()
 let { create } = createcontroller
@@ -21,6 +22,7 @@ let {get_mangas} = get_mangaController
 let { get_one } = get_one_controller
 let { get_me } = get_me_controller
 let { update } = update_controller
+let { destroy } = destroy_controller
 
 
 router.get('/me',passport.authenticate('jwt', {session: false}), find_id, get_me)
@@ -29,6 +31,7 @@ router.get('/', passport.authenticate('jwt', {session: false}), get_mangas)
 router.get('/:id', passport.authenticate('jwt', {session: false}), get_one)
 router.post('/',passport.authenticate('jwt', {session: false}), validator(schema), exists_title, create)
 router.put('/:id',passport.authenticate('jwt', {session: false}), validator(schema_update), find_id, is_active, exists_title, update)
+router.delete('/:id',passport.authenticate('jwt', {session: false}), find_id, is_active, destroy)
 
 
 
