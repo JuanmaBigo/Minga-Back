@@ -7,16 +7,19 @@ import exists_title from '../middlewares/exists_title.js';
 import validator from '../middlewares/validator.js'
 import schema from '../schemas/mangas.js'
 import passport from "../middlewares/passport.js";
+import get_me_controller from '../controllers/mangas/get_me.js'
+import find_id from '../middlewares/auth/find_id.js'
 
 let router = express.Router()
 let { create } = createcontroller
 let { showAll } = showcontroller
 let {get_mangas} = get_mangaController
 let { get_one } = get_one_controller
+let { get_me } = get_me_controller
 
-
+router.get('/me', passport.authenticate('jwt',{session: false}), find_id, get_me)
 router.get('/category-manga', showAll)
-router.get('/', get_mangas)
+router.get('/', passport.authenticate('jwt', {session: false}), get_mangas)
 router.get('/:id', passport.authenticate('jwt', {session: false}), get_one)
 router.post('/',passport.authenticate('jwt', {session: false}), validator(schema), exists_title, create)
 
