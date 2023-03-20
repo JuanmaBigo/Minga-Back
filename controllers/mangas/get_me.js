@@ -1,9 +1,10 @@
+
 import Manga from '../../models/Manga.js'
+
 
 const controller = {
 
     get_me: async (req,res,next) => {
-
         try {
             let mangas = await Manga.find({ author_id: req.body.author_id})
                 .select('title cover_photo category_id author_id')
@@ -17,11 +18,9 @@ const controller = {
                         mangas
                     })
             }
-        console.log(mangas);
         } catch (error) {
             next(error)
         }
-        
     }
 
 }
