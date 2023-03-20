@@ -1,23 +1,27 @@
-import User from '../../models/User.js'
-import createError from 'http-errors'
+import Manga from '../../models/Manga.js'
 
 const controller = {
 
     get_me: async (req,res,next) => {
+
         try {
-            let user = await User.findById({ _id: req.user._id})
-            if( user ){
-                return res 
+            let mangas = await Manga.find({ author_id: req.body.author_id})
+                .select('title cover_photo category_id author_id')
+                .populate('author_id', 'name last_name -_id')
+                .populate('category_id', 'name -_id')
+            if( mangas ){
+                return res
                     .status(200)
                     .json({
-                        succes: true,
-                        user
+                        success: true,
+                        mangas
                     })
             }
-            return next(createError(404, 'User dont Found'))
+        console.log(mangas);
         } catch (error) {
-            next(createError(400, error))
+            next(error)
         }
+        
     }
 
 }
