@@ -8,40 +8,40 @@ const schema = Joi.object({
         .min(2)
         .max(30)
         .messages({
-            'string.min': 'The title must be at least 2 characters long',
-            'string.max': 'The title must be 30 characters long max',
-            'string.empty': 'A title is required',
-            'any.required': 'A title is required'
+            'string.min': 'The name must be at least 2 characters long',
+            'string.max': 'The name must be 30 characters long max',
+            'string.empty': 'A name is required',
+            'any.required': 'A name is required'
         }),
     last_name: Joi
         .string()
         .min(2)
         .max(30)
         .messages({
-            'string.min': 'The title must be at least 2 characters long',
-            'string.max': 'The title must be 30 characters long max',
-            'string.empty': 'A title is required',
-            'any.required': 'A title is required'
+            'string.min': 'The last_name must be at least 2 characters long',
+            'string.max': 'The last_name must be 30 characters long max',
+            'string.empty': 'A last_name is required',
+            'any.required': 'A last_name is required'
         }),
     city: Joi
         .string()
         .min(5)
         .max(30)
         .messages({
-            'string.min': 'The title must be at least 5 characters long',
-            'string.max': 'The title must be 30 characters long max',
-            'string.empty': 'A title is required',
-            'any.required': 'A title is required'
+            'string.min': 'The city must be at least 5 characters long',
+            'string.max': 'The city must be 30 characters long max',
+            'string.empty': 'A city is required',
+            'any.required': 'A city is required'
         }),
     country: Joi
         .string()
         .min(5)
         .max(30)
         .messages({
-            'string.min': 'The title must be at least 5 characters long',
-            'string.max': 'The title must be 30 characters long max',
-            'string.empty': 'A title is required',
-            'any.required': 'A title is required'
+            'string.min': 'The country must be at least 5 characters long',
+            'string.max': 'The country must be 30 characters long max',
+            'string.empty': 'A country is required',
+            'any.required': 'A country is required'
         }),
     date: Joi
         .date()

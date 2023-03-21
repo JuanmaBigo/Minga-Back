@@ -14,7 +14,7 @@ import find_id from '../middlewares/auth/find_id.js';
 import is_active from '../middlewares/authors/is_active.js';
 import chapter_is_property_of from '../middlewares/chapter_is_property_of.js';
 import exists_order_update from '../middlewares/exists_order_update.js';
-// import schemaUpdate from '../schemas/chaptersUpdate.js';
+import schemaUpdate from '../schemas/chaptersUpdate.js';
 
 
 
@@ -30,7 +30,7 @@ const { destroy } = destroyChapterController;
 router.post('/', passport.authenticate('jwt', {session: false}), validator(schema), exists_order, next_order, add_front_photo, create);
 router.get('/', passport.authenticate('jwt', {session: false}), get_chapters)
 router.get('/:id',showOne)
-router.put('/:id', passport.authenticate('jwt', {session: false}), find_id, is_active, chapter_is_property_of, exists_order_update, update);
+router.put('/:id', passport.authenticate('jwt', {session: false}),validator(schemaUpdate), find_id, is_active, chapter_is_property_of, exists_order_update, update);
 router.delete('/:id', passport.authenticate('jwt', {session: false}), find_id, is_active, chapter_is_property_of, destroy);
 
 
