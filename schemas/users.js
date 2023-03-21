@@ -18,7 +18,7 @@ const schema = Joi.object({
         .messages({
             'string.min':'The password must be at least 3 characteres',
             'string.empty':'The name cannot be empty',
-            'any.required': 'Aname is required',
+            'any.required': 'A name is required',
             'string.email' : 'A valid email is necessary'
         }),
     password: Joi
