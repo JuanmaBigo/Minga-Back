@@ -12,7 +12,7 @@ const controller = {
 
         try {
             let chapters = await Chapter.find(query)
-                .select("title order")
+                .select("title order cover_photo")
                 .skip(pagination.page > 0 ? (pagination.page - 1) * pagination.limit : 0)
                 .limit(pagination.limit > 0 ? pagination.limit : 0)
 

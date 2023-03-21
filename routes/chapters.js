@@ -28,7 +28,7 @@ const { update } = updateChapterController;
 const { destroy } = destroyChapterController;
 
 router.post('/', passport.authenticate('jwt', {session: false}), validator(schema), exists_order, next_order, add_front_photo, create);
-router.get('/', get_chapters)
+router.get('/', passport.authenticate('jwt', {session: false}), get_chapters)
 router.get('/:id',showOne)
 router.put('/:id', passport.authenticate('jwt', {session: false}), validator(schemaUpdate), find_id, is_active, chapter_is_property_of, exists_order_update, update);
 router.delete('/:id', passport.authenticate('jwt', {session: false}), find_id, is_active, chapter_is_property_of, destroy);
