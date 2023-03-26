@@ -1,4 +1,5 @@
-import {Author} from "../../models/Author.js"
+import Author from "../../models/Author.js";
+
 async function finds_id(req,res,next){
     const author = await Author.findOne({user_id: req.user.id})
     if(author){
@@ -6,10 +7,11 @@ async function finds_id(req,res,next){
         console.log({ user: req.user });
         return next()
     }
-   
+
+
     return res.status(400).json({
         success: false,
-        message: 'No authors founded 123'
+        message: 'No authors founded'
     })
 }
 

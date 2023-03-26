@@ -1,4 +1,5 @@
 import Manga from "../../models/Manga.js"
+import createError from 'http-errors';
 
 const controller = {
     get_mangas: async (req,res,next) => {
@@ -42,9 +43,12 @@ const controller = {
                     success:true,
                     mangas: get_mangas 
                 })
-            }else{
-                return next(createError(404, 'Mangas does not exist'))
             }
+<<<<<<< HEAD
+=======
+            return next(createError(404, 'Mangas does not exist'))
+            
+>>>>>>> 33152d92a6c30f16c873c600480bbe7fffb0b274
         }catch(err){
             next(err)
         }
