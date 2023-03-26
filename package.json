@@ -10,7 +10,6 @@
     "test-chapters": "mocha ./test/chapters.test.js --timeout 5000",
     "test-02": "mocha --timeout 5000 ./test/test-02.test.js",
     "test-01": "mocha --timeout 5000 ./test/test-01.test.js"
-
   },
   "type": "module",
   "dependencies": {
@@ -28,6 +27,7 @@
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.10.0",
     "morgan": "~1.9.1",
+    "nodemailer": "^6.9.1",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1"
   },

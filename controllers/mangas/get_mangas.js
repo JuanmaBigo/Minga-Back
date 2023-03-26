@@ -44,11 +44,8 @@ const controller = {
                     mangas: get_mangas 
                 })
             }
-<<<<<<< HEAD
-=======
             return next(createError(404, 'Mangas does not exist'))
             
->>>>>>> 33152d92a6c30f16c873c600480bbe7fffb0b274
         }catch(err){
             next(err)
         }
