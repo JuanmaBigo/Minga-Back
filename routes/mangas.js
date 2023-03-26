@@ -15,7 +15,6 @@ import is_active from '../middlewares/authors/is_active.js'
 import is_property_of from '../middlewares/authors/is_property_of.js'
 import destroy_controller from '../controllers/mangas/destroy.js'
 
-
 let router = express.Router()
 let { create } = createcontroller
 let { showAll } = showcontroller
@@ -24,7 +23,6 @@ let { get_one } = get_one_controller
 let { get_me } = get_me_controller
 let { update } = update_controller
 let { destroy } = destroy_controller
-
 
 
 router.get('/me',passport.authenticate('jwt', {session: false}), find_id, get_me)
