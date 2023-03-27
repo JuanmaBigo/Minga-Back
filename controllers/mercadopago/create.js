@@ -19,7 +19,7 @@ const controller = {
             back_urls: {
                 success: "https://minga-red.vercel.app/donate/success",
                 failure: "https://minga-red.vercel.app/donate",
-                pending: "https://minga-red.vercel.app/donate/success" //aca seteo la url a la que vuelve el usuario una vez hecha la donacion
+                pending: "https://minga-red.vercel.app/donate/success" 
             },
             binary_mode: true,
             auto_return: 'approved'
