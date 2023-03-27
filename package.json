@@ -10,7 +10,6 @@
     "test-chapters": "mocha ./test/chapters.test.js --timeout 5000",
     "test-02": "mocha --timeout 5000 ./test/test-02.test.js",
     "test-01": "mocha --timeout 5000 ./test/test-01.test.js"
-
   },
   "type": "module",
   "dependencies": {
@@ -26,6 +25,7 @@
     "joi-objectid": "^4.0.2",
     "joi-oid": "^1.1.2",
     "jsonwebtoken": "^9.0.0",
+    "mercadopago": "^1.5.15",
     "mongoose": "^6.10.0",
     "morgan": "~1.9.1",
     "passport": "^0.6.0",
