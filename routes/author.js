@@ -19,7 +19,7 @@ let router = express.Router();
 
 
 router.get('/',read_all)
-router.post('/', validator(schema), create);
+router.post('/',passport.authenticate('jwt',{session:false}), validator(schema), create);
 router.get('/me',passport.authenticate('jwt',{session:false}),find_id,get_me)
 router.put('/me',passport.authenticate('jwt',{session:false}),validator(schemaUpdate),find_id,is_active,update)
 

@@ -29,7 +29,7 @@ const schema = Joi.object({
         .string()
         .required()
         .min(8)
-        .max(300)
+        .max(30)
         .messages({
             'string.min': 'The Description must be at least 8 characters long',
             'string.max': 'The Description must be 30 characters long max',
