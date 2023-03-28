@@ -96,7 +96,7 @@ async function createMailTransporter (user) {
         <table border="0" cellpadding="0" cellspacing="0" style="width:215px;border-spacing:0;border-collapse:collapse" width="215">
         <tbody><tr>
         <td align="center" height="43" style="border-collapse:collapse;background-color:#FF5722;border-radius:9px;white-space:nowrap">
-        <a href='${process.env.CLIENT_URL}/verify/${user.verify_code}' style="display:inline-block;width:100%;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:bold;line-height:19px;color:#ffffff;text-align:center;text-decoration:none;background-color:#FF5722;border-radius:14px;border-top:12px solid #FF5722;border-bottom:12px solid #FF5722;text-transform:uppercase" target="_blank" data-saferedirecturl="http://localhost:3000/verify/4ffbcdd6f1c0a35bd89e">
+        <a href='${process.env.CLIENT_URL}verify/${user.verify_code}' style="display:inline-block;width:100%;font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:bold;line-height:19px;color:#ffffff;text-align:center;text-decoration:none;background-color:#FF5722;border-radius:14px;border-top:12px solid #FF5722;border-bottom:12px solid #FF5722;text-transform:uppercase" target="_blank" data-saferedirecturl="http://localhost:3000/verify/4ffbcdd6f1c0a35bd89e">
         &nbsp;&nbsp;CONFIRM EMAIL
         &nbsp;&nbsp;
         </a>
