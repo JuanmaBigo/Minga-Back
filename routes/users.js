@@ -12,12 +12,14 @@ import passport from './../middlewares/passport.js'
 
 const {read_all} = read_all_controller
 
-const {sign_up,sign_in,sign_out,token} = controller
+const {sign_up,sign_in,sign_out,token,verifyMail} = controller
 
 let router = express.Router();
 
 /* GET users listing. */
 router.get('/', read_all);
+
+router.get('/verify',verifyMail)//para que al enviarse la peticion se verifique la cuenta (cambia la peticion de is_verifi de false a true)
 
 router.post('/signup',validator(schema),accountExistsSignUp,sign_up)
 router.post('/signin',validator(schemaRegister),accountExistsSignIn,accountHasBeenVerified,passwordIsOk,sign_in)
