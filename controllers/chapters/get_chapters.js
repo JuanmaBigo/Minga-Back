@@ -8,15 +8,15 @@ const controller = {
         let pagination = { page: 1, limit: 4 }
         if (req.query.page) { pagination.page = req.query.page }
         if (req.query.manga_id) { query.manga_id = req.query.manga_id }
+        if  (req.query.limit) { pagination.limit = req.query.limit  }
 
         try {
-            let chapters = await Chapter.find({ manga_id: query.manga_id })
-                .select("title order -_id")
+            let chapters = await Chapter.find(query)
+                .select("title order cover_photo")
                 .skip(pagination.page > 0 ? (pagination.page - 1) * pagination.limit : 0)
                 .limit(pagination.limit > 0 ? pagination.limit : 0)
-                .populate("_id")
 
-            let count = await Chapter.find({ manga_id: query.manga_id }).countDocuments()
+            let count = await Chapter.find(query).countDocuments()
 
             if (count) {
                 return res

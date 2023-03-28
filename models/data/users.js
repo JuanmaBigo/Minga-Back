@@ -79,4 +79,3 @@ export let users = [{
     is_online: false,
     photo: "https://i.postimg.cc/2jZbntSQ/image.png"
 }]
-

@@ -5,12 +5,12 @@ import { authors } from './authors.js'
 import { companies } from './companies.js'
 import { categories } from './categories.js'
 import { mangas_v1 } from './mangas_v1.js'
-import { User } from '../User.js'
-import { Author } from '../Author.js'
-import { Company } from '../Company.js'
-import { Category } from '../Category.js'
-import { Manga } from '../Manga.js'
-import { Chapter } from '../Chapter.js'
+import User from '../User.js'
+import Author from '../Author.js'
+import Company from '../Company.js'
+import Category from '../Category.js'
+import Manga from '../Manga.js'
+import Chapter from '../Chapter.js'
 
 let newCategories = async(categories) => await Category.insertMany(categories)
 
@@ -40,6 +40,7 @@ let newMangas = async(mangas) => {
         let newManga = await Manga.create(manga)
         for (let chapter of manga.chapters) {
             chapter.manga_id = newManga._id
+            chapter.cover_photo = chapter.pages[0]
             await Chapter.create(chapter)
         }
     }

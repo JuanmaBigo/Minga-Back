@@ -2,6 +2,7 @@ import express from 'express';  // Modulo necesario para crear todo
 import path from 'path'; // Modulo para manejar rutas
 import 'dotenv/config.js'
 import './config/database.js'
+import './config/mercadopago.js'
 import cookieParser from 'cookie-parser'; // Libreria para manejar cookies
 import logger from 'morgan';  // Libreria para manejar logs
 import indexRouter from './routes/index.js';
