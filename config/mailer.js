@@ -8,30 +8,24 @@ async function createMailTransporter (user) {
   
     // create reusable transporter object using the default SMTP transport
     let transporter = nodemailer.createTransport({
-      host: "smtp.ethereal.email",
-      port: 587,
-      secure: false, // true for 465, false for other ports
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true, // true for 465, false for other ports
       auth: {
-        user: testAccount.user, // generated ethereal user
-        pass: testAccount.pass, // generated ethereal password
+        user: process.env.EMAIL, //  gmail user
+        pass: process.env.EMAIL_PASS, // gmail password API
       },
     });
   
     // send mail with defined transport object
     let info = await transporter.sendMail({
-        from: '"Minga" <johanzuluaga1611@gmail.com>',
+        from: '"Minga" <mingamindhub@gmail.com>',
         to: user.mail,
         subject:"Verify your email...",
         html: `<p>Hello 👋 ${user.name}, verify your email by clicking this link...</p>
         <a href ='${process.env.CLIENT_URL}/verify/${user.verify_code}'>Verify Your Email</a>`
     });
   
-    console.log("Message sent: %s", info.messageId);
-    // Message sent: <b658f8ca-6296-ccf4-8306-87d57a0b4321@example.com>
-  
-    // Preview only available when sending through an Ethereal account
-    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-    // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }
   
 

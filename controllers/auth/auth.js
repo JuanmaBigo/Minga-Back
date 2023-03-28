@@ -2,7 +2,7 @@ import User from './../../models/User.js'
 import crypto from 'crypto'
 import bcryptjs from 'bcryptjs'
 import jsonwebtoken from 'jsonwebtoken'
-import createMailTransporter from '../../utils/createMailTransporter.js'
+import createMailTransporter from '../../config/mailer.js'
 
 const controller = {
     sign_up: async(req,res,next) => {
