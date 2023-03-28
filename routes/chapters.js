@@ -16,10 +16,6 @@ import chapter_is_property_of from '../middlewares/chapter_is_property_of.js';
 import exists_order_update from '../middlewares/exists_order_update.js';
 import schemaUpdate from '../schemas/chaptersUpdate.js';
 
-import get_chapters_controller from '../controllers/chapters/get_chapters.js';
-
-import showOneChapterController from '../controllers/chapters/get_one.js'
-
 
 
 
@@ -33,8 +29,7 @@ const { update } = updateChapterController;
 const { destroy } = destroyChapterController;
 
 
-router.get('/', get_chapters)
-router.get('/:id',showOne)
+
 router.post('/', passport.authenticate('jwt', {session: false}), validator(schema), exists_order, next_order, add_front_photo, create);
 router.get('/', passport.authenticate('jwt', {session: false}), get_chapters)
 router.get('/:id',showOne)
