@@ -17,9 +17,9 @@ const controller = {
                 name: req.user.name
             },
             back_urls: {
-                success: "https://minga-red.netlify.app/donate/success",
-                failure: "https://minga-red.netlify.app/donate",
-                pending: "https://minga-red.netlify.app/donate/success" 
+                success: process.env.CLIENT_URL + "donate/success",
+                failure: process.env.CLIENT_URL + "donate",
+                pending: process.env.CLIENT_URL + "donate/success" 
             },
             binary_mode: true,
             auto_return: 'approved'
