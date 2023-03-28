@@ -2,7 +2,7 @@ import User from './../../models/User.js'
 import crypto from 'crypto'
 import bcryptjs from 'bcryptjs'
 import jsonwebtoken from 'jsonwebtoken'
-
+import createMailTransporter from '../../utils/createMailTransporter.js'
 
 const controller = {
     sign_up: async(req,res,next) => {
@@ -10,11 +10,13 @@ const controller = {
         req.body.is_admin = false
         req.body.is_author = false
         req.body.is_company = false
-        req.body.is_verified = true
+        req.body.is_verified = false
         req.body.verify_code = crypto.randomBytes(10).toString('hex')
         req.body.password = bcryptjs.hashSync(req.body.password, 10)
         try {
-            await User.create(req.body)
+            const user = await User.create(req.body)
+            console.log(user);
+            createMailTransporter(user)
             return res.status(200).json({
                 success: true,
                 message:'user registered!',
@@ -88,7 +90,41 @@ const controller = {
     } catch (error) {
         next(error)
     }
-    }
+    },
+
+    verifyMail: async(req,res,next) => {
+        try{
+            const verify_code = req.query.verify_code
+            if (!verify_code) return res.status(404).json('Verify Code not found...')
+
+            const user = await User.findOne({verify_code})
+            console.log(user);
+            if (user){
+                user.verify_code = null
+                user.is_verified = true
+
+                await user.save()
+
+                const token = jsonwebtoken.sign(
+                    {id: user._id}, //datos a encriptar
+                    process.env.SECRET, //llave para poder encriptar y luego desencriptar
+                    { expiresIn: 60*60*24*7 } //tiempo de expiracion en segundos
+                ) 
+
+                res.status(200).json({
+                    _id: user._id,
+                    name: user.name,
+                    mail: user.mail,
+                    token,
+                    is_verified: user?.is_verified
+                })
+            }else res.status(404).json('Mail verification failed, invalid token')
+
+        }catch(error){
+            console.log(error)
+            res.status(500).json(error.message)
+        }
+    } 
 
 }
 
