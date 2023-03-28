@@ -15,8 +15,11 @@ const controller = {
         req.body.password = bcryptjs.hashSync(req.body.password, 10)
         try {
             const user = await User.create(req.body)
-            console.log(user);
-            createMailTransporter(user)
+            
+            createMailTransporter(user)//envio del mail para verificacion
+            .then(info => console.log(info))
+            .catch(error => console.log(error))
+
             return res.status(200).json({
                 success: true,
                 message:'user registered!',
