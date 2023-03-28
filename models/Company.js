@@ -6,7 +6,8 @@ const schema = new mongoose.Schema(
         logo: { type: String, required: true },
         website: { type: String, required: true },
         description: { type: String, required: true },
-        user_id: { type: mongoose.Types.ObjectId, ref: 'users', required: true }
+        user_id: { type: mongoose.Types.ObjectId, ref: 'users', required: true },
+        active: { type: Boolean, required: true }
     },{
         timestamps: true
     }
