@@ -21,5 +21,5 @@ const controller = {
             next(createError(400,error))
         }
     }
-   }
+}
 export default controller
