@@ -11,6 +11,8 @@ import passwordIsOk from './../middlewares/passwordIsOk.js'
 import passport from './../middlewares/passport.js'
 import admin_author_controllers from '../controllers/admin/authors.js'
 import authorActive from '../middlewares/admin/author_active.js';
+import admin_company_controller from '../controllers/admin/companies.js'
+import companyActive from '../middlewares/admin/company_active.js';
 
 
 
@@ -19,6 +21,7 @@ const {read_all} = read_all_controller
 
 const {sign_up,sign_in,sign_out,token,verifyMail} = controller
 const { update_active } = admin_author_controllers
+const { updateCompany_active } = admin_company_controller
 
 
 let router = express.Router();
@@ -33,6 +36,7 @@ router.post('/signin',validator(schemaRegister),accountExistsSignIn,accountHasBe
 router.post('/signout',passport.authenticate('jwt',{ session:false }),sign_out)
 router.post('/token',passport.authenticate('jwt',{ session:false }),token)
 router.put('/role/author/:id', passport.authenticate('jwt',{ session:false }), authorActive, update_active)
+router.put('/role/company/:id', passport.authenticate('jwt',{ session:false }), companyActive , updateCompany_active)
 
 
 
