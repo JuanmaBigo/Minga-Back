@@ -9,10 +9,17 @@ import accountExistsSignIn from './../middlewares/accountExistsSignIn.js'
 import accountHasBeenVerified from './../middlewares/accountHasBeenVerified.js'
 import passwordIsOk from './../middlewares/passwordIsOk.js'
 import passport from './../middlewares/passport.js'
+import admin_author_controllers from '../controllers/admin/authors.js'
+import authorActive from '../middlewares/admin/author_active.js';
+
+
+
 
 const {read_all} = read_all_controller
 
 const {sign_up,sign_in,sign_out,token,verifyMail} = controller
+const { update_active } = admin_author_controllers
+
 
 let router = express.Router();
 
@@ -25,6 +32,8 @@ router.post('/signup',validator(schema),accountExistsSignUp,sign_up)
 router.post('/signin',validator(schemaRegister),accountExistsSignIn,accountHasBeenVerified,passwordIsOk,sign_in)
 router.post('/signout',passport.authenticate('jwt',{ session:false }),sign_out)
 router.post('/token',passport.authenticate('jwt',{ session:false }),token)
+router.put('/role/author/:id', passport.authenticate('jwt',{ session:false }), authorActive, update_active)
+
 
 
 export default router;

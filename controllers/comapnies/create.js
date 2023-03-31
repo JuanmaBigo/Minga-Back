@@ -6,7 +6,7 @@ const controller = {
 
         const {user} = req
         req.body.user_id = user._id
-        req.body.active = true
+        req.body.active = false
         
         try {
             let company = await Company.create(req.body)
