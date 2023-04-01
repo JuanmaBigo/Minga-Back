@@ -23,6 +23,25 @@ const controller = {
         } catch (error) {
             next(error)
         }
+    },
+
+    getAll_companies: async (req,res,netx) => {
+        try {
+            let companies = await Company.find()
+            if ( companies ){
+                let activeCompanies = companies.filter( company => company.active)
+                let inactiveCompanies = companies.filter( company => !company.active)
+                return res
+                    .status(200)
+                    .json({
+                        message: 'Companies:',
+                        activeCompanies,
+                        inactiveCompanies
+                    })
+            }
+        } catch (error) {
+            next(error)
+        }
     }
 }
 

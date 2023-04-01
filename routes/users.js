@@ -21,7 +21,7 @@ const {read_all} = read_all_controller
 
 const {sign_up,sign_in,sign_out,token,verifyMail} = controller
 const { update_active, getAll_authors } = admin_author_controllers
-const { updateCompany_active } = admin_company_controller
+const { updateCompany_active, getAll_companies } = admin_company_controller
 
 
 let router = express.Router();
@@ -38,6 +38,7 @@ router.post('/token',passport.authenticate('jwt',{ session:false }),token)
 router.put('/role/author/:id', passport.authenticate('jwt',{ session:false }), authorActive, update_active)
 router.put('/role/company/:id', passport.authenticate('jwt',{ session:false }), companyActive , updateCompany_active)
 router.get('/authors/admin', passport.authenticate('jwt',{ session:false }), getAll_authors)
+router.get('/companies/admin', passport.authenticate('jwt',{ session:false }), getAll_companies)
 
 
 
