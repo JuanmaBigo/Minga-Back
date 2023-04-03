@@ -17,7 +17,26 @@ const controller = {
                 return res
                     .status(200)
                     .json({
-                        message: 'Author is active now'
+                        message: 'Author is active now!'
+                    })
+            }
+        } catch (error) {
+            next(error)
+        }
+    },
+
+    getAll_authors: async (req,res,next) => {
+        try {
+            let authors = await Author.find()
+            if ( authors ){
+                let activeAuthors = authors.filter( auth => auth.active)
+                let inactiveAuthors = authors.filter( auth => !auth.active)
+                return res
+                    .status(200)
+                    .json({
+                        message: 'Authors:',
+                        activeAuthors,
+                        inactiveAuthors
                     })
             }
         } catch (error) {
