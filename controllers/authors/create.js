@@ -5,7 +5,7 @@ const controller = {
         
         const {user} = req
         req.body.user_id = user._id
-        req.body.active = false
+        req.body.active = true
         try {
             let author = await Author.create(req.body)
             return res.status(201).json({
