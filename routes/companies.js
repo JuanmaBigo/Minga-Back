@@ -13,6 +13,8 @@ const { create } = create_controller
 let router = express.Router()
 
 router.get('/', read_all)
+
 router.post('/', passport.authenticate('jwt', {session: false}), exists_name, validator(schema), create)
+
 
 export default router

@@ -101,6 +101,7 @@ const controller = {
             if (!verify_code) return res.status(404).json('Verify Code not found...')
 
             const user = await User.findOne({verify_code})
+
             if (user){
                 user.verify_code = null
                 user.is_verified = true
